@@ -1,5 +1,6 @@
 from setuptools import setup
 import os
+from codecs import open
 
 here = os.path.abspath(os.path.dirname(__file__))
 
