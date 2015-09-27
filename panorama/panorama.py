@@ -3,6 +3,8 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import sys
 import itertools
 import subprocess
+from PIL import Image
+from resizeimage import resizeimage
 
 import os
 
@@ -147,8 +149,7 @@ class Panorama(object):
         if not os.path.exists(self.tif):
             print('%s does not exist. Can not create %s' % (self.tif, self.panorama_jpg))
             return
-        pb = Utils.scale2pixbuf(MAX_SIZE, MAX_SIZE, self.tif)
-        pb.save(self.panorama_jpg, 'jpeg')
+        resize_file(self.tif, self.panorama_jpg, [2000, 2000])
         print('created', self.panorama_jpg)
 
     @classmethod
@@ -157,3 +158,9 @@ class Panorama(object):
             print('directory %s does not exist' % directory)
             return
         return cls(directory)
+
+def resize_file(in_file, out_file, size):
+    with open(in_file) as fd:
+        image = resizeimage.resize_thumbnail(Image.open(fd), size)
+    image.save(out_file)
+    image.close()

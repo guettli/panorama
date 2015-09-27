@@ -1,4 +1,10 @@
 from setuptools import setup
+import os
+
+here = os.path.abspath(os.path.dirname(__file__))
+
+with open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='panorama',
@@ -7,6 +13,8 @@ setup(
 
     description='Create panorama in one run. Uses hugin for the real work.',
 
+    long_description=long_description,
+
     url='https://github.com/guettli/panorama',
 
     # Author details
@@ -14,6 +22,10 @@ setup(
     author_email='guettliml.panorama@thomas-guettler.de',
 
     license='Apache Software License',
+
+    install_requires=[
+        'python-resize-image',
+    ],
 
     classifiers=[
         'Programming Language :: Python :: 2',
