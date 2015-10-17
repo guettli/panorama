@@ -17,6 +17,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('directories', nargs='+')
     args = parser.parse_args()
+    os.nice(20)
     do_panoramas_in_dirs(args.directories)
 
 
