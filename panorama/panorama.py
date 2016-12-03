@@ -122,11 +122,11 @@ class Panorama(object):
         if not is_target_out_of_date(self.tif, itertools.chain(self.source_files, [self.pto])):
             return
         for cmd in [
-            ('PTBatcher', '-a', self.pto, '-o', self.tif),
-            ('PTBatcher', '-b'),
+            ('PTBatcherGUI', '-b', self.pto, self.tif),
             ('notify-send', 'Created panorama %s' % self.tif),
         ]:
-            subprocess.call(cmd)
+            print('subprocess: %s cwd=%s' % (cmd, self.directory))
+            subprocess.call(cmd, cwd=self.directory)
 
         if not os.path.exists(self.tif):
             fused_tif = '%s_fused.tif' % self.tif[:-4]
