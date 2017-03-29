@@ -9,6 +9,10 @@ Installation
 
     pip install panorama
 
+    # or if you love programming
+
+    pip install -e git+https://github.com/guettli/panorama.git#egg=panorama
+
 Usage
 -----
 .. code-block:: shell

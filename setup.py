@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 import os
 from codecs import open
 
@@ -23,6 +23,8 @@ setup(
     author_email='guettliml.panorama@thomas-guettler.de',
 
     license='Apache Software License',
+
+    packages=find_packages(),
 
     install_requires=[
         'python-resize-image',
