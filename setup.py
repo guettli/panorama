@@ -10,7 +10,7 @@ with open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='panorama',
 
-    version='0.4.0',
+    version='0.5.0',
 
     description='Create panorama in one run. Uses hugin for the real work.',
 
